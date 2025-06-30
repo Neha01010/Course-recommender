@@ -40,6 +40,6 @@ The CourseRecBot operates on a webhook-driven architecture:
 2.  **Telegram Webhook:** Telegram forwards the user's message to a specific webhook URL exposed by the deployed Flask application.
 3.  **Dialogflow Integration:** The Flask application forwards the user's text to the Dialogflow agent for NLU processing. Dialogflow identifies the user's intent (e.g., `Recommend_Course`) and extracts relevant parameters (e.g., `course_topic`).
 4.  **Fulfillment Webhook:** Dialogflow's fulfillment webhook (which is configured to point back to the Flask application's `/` endpoint) sends the processed intent and parameters back to the Flask app.
-5.  **Course Recommendation Logic:** The Flask application (your Python backend) uses the extracted `course_topic` to query the `mod_key_courses.csv` database using Pandas to find the best course recommendations.
+5.  **Course Recommendation Logic:** The Flask application (your Python backend) uses the extracted `course_topic` to query the `Coursera_courses.csv` database using Pandas to find the best course recommendations.
 6.  **Response Generation:** The Flask app formats the recommendations and sends them back to Dialogflow.
 7.  **Bot Response:** Dialogflow then sends the structured response back to Telegram, which delivers it to the user.
