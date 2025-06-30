@@ -1,6 +1,6 @@
 from flask import Flask,request, jsonify
 import pandas as pd
-import random
+import os
 app=Flask(__name__)
 df=pd.read_csv('Coursera_courses.csv')
 @app.route('/', methods=['POST'])
