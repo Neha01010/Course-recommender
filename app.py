@@ -44,6 +44,11 @@ def webhook():
     print("Sending response to Dialogflow:")
     print(response_json)
     return jsonify(response_json)
+@app.route('/telegram', methods=['POST'])
+def telegram_webhook():
+    update = request.get_json(silent=True)
+    return jsonify({"status": "ok"}), 200
+
 if __name__== "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
