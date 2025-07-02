@@ -1,7 +1,6 @@
 from flask import Flask,request, jsonify
 import pandas as pd
 import os
-from google.cloud import dialogflow_v2 as dialogflow
 app=Flask(__name__)
 df=pd.read_csv('Coursera_courses.csv')
 @app.route('/', methods=['POST'])
