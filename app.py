@@ -3,7 +3,7 @@ import pandas as pd
 import os
 app=Flask(__name__)
 df=pd.read_csv('Coursera_courses.csv')
-@app.route('/', methods=['POST'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
     data=request.get_json()
     topic=data['queryResult']['parameters']['course_topic']
