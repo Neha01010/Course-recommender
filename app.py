@@ -1,9 +1,10 @@
 from flask import Flask,request, jsonify
 import pandas as pd
 import os
+from google.cloud import dialogflow_v2 as dialogflow
 app=Flask(__name__)
 df=pd.read_csv('Coursera_courses.csv')
-@app.route('/webhook', methods=['POST'])
+@app.route('/', methods=['POST'])
 def webhook():
     data=request.get_json()
     topic=data['queryResult']['parameters']['course_topic']
@@ -44,10 +45,7 @@ def webhook():
     print("Sending response to Dialogflow:")
     print(response_json)
     return jsonify(response_json)
-@app.route('/telegram', methods=['POST'])
-def telegram_webhook():
-    update = request.get_json(silent=True)
-    return jsonify({"status": "ok"}), 200
+
 
 if __name__== "__main__":
     port = int(os.environ.get("PORT", 5000))
