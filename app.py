@@ -44,7 +44,11 @@ def telegram_webhook():
             "parse_mode": "Markdown",  # Allows bold/italic/links
             "disable_web_page_preview": True
         }
-        requests.post(TELEGRAM_API_URL, json=payload)
+        try:
+            response = requests.post(TELEGRAM_API_URL, json=payload)
+            print("Telegram response:", response.text)
+        except Exception as e:
+            print("Error sending message:", e)
 
     return "OK", 200
 
