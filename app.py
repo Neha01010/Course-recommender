@@ -2,6 +2,7 @@ from flask import Flask,request, jsonify
 import pandas as pd
 import os
 from dotenv import load_dotenv
+import requests
 load_dotenv()
 app=Flask(__name__)
 df=pd.read_csv('Coursera_courses.csv')
@@ -43,7 +44,7 @@ def telegram_webhook():
             "parse_mode": "Markdown",  # Allows bold/italic/links
             "disable_web_page_preview": True
         }
-        request.post(TELEGRAM_API_URL, json=payload)
+        requests.post(TELEGRAM_API_URL, json=payload)
 
     return "OK", 200
 
