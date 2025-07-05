@@ -34,7 +34,10 @@ def telegram_webhook():
             reply_text = f"❌ Sorry, I couldn't find any courses related to '{user_message}'. Try another topic?"
         else:
             lines = [f"📚 Courses for *{user_message}*:"]
-            for title, (institution, url) in req_details.items():
+            max_courses = 5
+            for i, (title, (institution, url)) in enumerate(req_details.items()):
+                if i >= max_courses:
+                    break
                 lines.append(f"✨ *{title}*\n🔗 [Course Link]({institution})\n🏛 Institution: {url}\n")
             reply_text = "\n\n".join(lines)
 
