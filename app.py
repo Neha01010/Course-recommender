@@ -43,7 +43,7 @@ def telegram_webhook():
             "parse_mode": "Markdown",  # Allows bold/italic/links
             "disable_web_page_preview": True
         }
-        requests.post(TELEGRAM_API_URL, json=payload)
+        request.post(TELEGRAM_API_URL, json=payload)
 
     return "OK", 200
 
