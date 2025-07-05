@@ -8,7 +8,8 @@ app=Flask(__name__)
 df=pd.read_csv('Coursera_courses.csv')
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+#TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+TELEGRAM_API_URL = f"https://api.telegram.org/bot8068017240:AAFK9vvU_fXR6IBxU7WK1T_XLoLE7TGfOWI/sendMessage"
 
 @app.route('/webhook', methods=['POST'])
 def telegram_webhook():
